@@ -15,12 +15,14 @@
     delete from pet
     where p_id = #{pId,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.oukele.model.Pet">
-    insert into pet (p_id, p_name, photo_urls, 
+    insert into pet (p_name, photo_urls,
       status, c_id, t_id)
-    values (#{pId,jdbcType=INTEGER}, #{pName,jdbcType=VARCHAR}, #{photoUrls,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{cId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER})
+    values (#{pName,jdbcType=VARCHAR}, #{photoUrls,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR}, #{cId}, #{tId})
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.oukele.model.Pet">
     update pet
     set p_name = #{pName,jdbcType=VARCHAR},
@@ -30,16 +32,12 @@
       t_id = #{tId,jdbcType=INTEGER}
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select p_id, p_name, photo_urls, status, c_id, t_id
     from pet
     where p_id = #{pId,jdbcType=INTEGER}
   </select>
-
-  <!--<select id="selectAll" resultMap="BaseResultMap">-->
-    <!--select p_id, p_name, photo_urls, status, c_id, t_id-->
-    <!--from pet-->
-  <!--</select>-->
 
   <select id="selectAll" resultMap="BaseResultMap">
     select * from pet p

@@ -1,5 +1,7 @@
 package com.oukele.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class Pet {
     private Integer pId;
 
@@ -9,10 +11,10 @@ public class Pet {
 
     private String status;
 
-    ///private Integer cId;
+    private Integer cId;
     private Tag tag;
 
-   // private Integer tId;
+    private Integer tId;
 
     private Category category;
 
@@ -62,6 +64,22 @@ public class Pet {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Integer getcId() {
+        return cId;
+    }
+
+    public void setcId(Integer cId) {
+        this.cId = cId;
+    }
+
+    public Integer gettId() {
+        return tId;
+    }
+
+    public void settId(Integer tId) {
+        this.tId = tId;
     }
 
     @Override

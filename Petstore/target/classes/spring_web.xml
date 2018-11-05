@@ -45,4 +45,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--文件上传和下载-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
+
 </beans>
